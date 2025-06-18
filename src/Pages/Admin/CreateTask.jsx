@@ -23,6 +23,7 @@ const CreateTask = () => {
   const [taskData, settaskData] = useState({
     title:"",
     description:"",
+    status:"Pending",
     priority:"Low",
     dueDate:null,
     assignedTo:[],
@@ -34,7 +35,7 @@ const CreateTask = () => {
   const [loading, setloading] = useState(false)
   const [openDeleteAlert, setopenDeleteAlert] = useState(false)
 
-  console.log(taskData ,"slks");
+  console.log(taskData ,"Taskdata");
   
   const HandleValueChange=(key, value)=>{
     

@@ -2,6 +2,8 @@ import React from 'react'
 import moment from 'moment'
 
 const TaskListTable = ({tableData}) => {
+    console.log("data",tableData);
+    
 
     const getStatusBadgeColor = (status)=>{
         switch(status)
@@ -41,7 +43,7 @@ const TaskListTable = ({tableData}) => {
                             <td className='my-3 mx-4 text-gray-700 text-[13px line-clamp-1 overflow-hidden]'>{item.title}</td>
                             <td className='p-4'>
                                 <span className={`px-2 py-1 text-xs rounded inline-block ${getStatusBadgeColor(item.status)}`}>
-                                    {item.status}
+                                    {item.status == null ? "Pending" : item.status} 
                                 </span>
                             </td>
                             <td className='p-4'>

@@ -4,6 +4,7 @@ import { validateEmail } from './valideEmail';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom"
 import { UserContext } from '../../ContextApi/User';
+import CustomDiv from './components/CustomDiv';
 const Login = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -43,10 +44,9 @@ const Login = () => {
 
       } catch (error) {
         if (error.response) {
-            console.log("Error Status:", error.response.status);  // 401
-            console.log("Error Data:", error.response.data);      // Backend message
-    
-            // Extract and set the backend error message
+            console.log("Error Status:", error.response.status);  //
+            console.log("Error Data:", error.response.data);    
+  
             seterror(error.response.data.message || "Unauthorized Access");
         } else if (error.request) {
             console.log("No response received:", error.request);
@@ -85,7 +85,7 @@ const Login = () => {
 
   return (
     <>
-      <div className='flex flex-row font-poppins'>
+      <div className='relative flex flex-row font-poppins h-screen overflow-hidden'>
         <div className='w-[60%] flex flex-col  h-screen py-10 pl-16'>
           <h1 className='font-semibold text-2xl'>Task Manager</h1>
           <div className='flex flex-col justify-center  h-full'>
@@ -132,9 +132,12 @@ const Login = () => {
           </div>
         </div>
 
-        <div className='w-[40%] bg-task_primary h-screen flex items-center justify-center'>
-          <div className='text-9xl text-white'>TM</div>
+         <div className="relative flex h-[120vh] w-[40%] -translate-y-10 translate-x-10 rotate-12 items-center justify-center overflow-hidden bg-[#2563eb]">
+          <CustomDiv />
         </div>
+        <div className="absolute -top-96 right-32 z-30 size-96 -translate-y-16 -rotate-12 scale-150 rounded-3xl bg-blue-800"></div>
+        <div className="absolute -bottom-96 right-32 z-30 size-96 -translate-x-48 translate-y-8 -rotate-12 scale-150 rounded-3xl bg-blue-800"></div>
+      
       </div>
     </>
   );

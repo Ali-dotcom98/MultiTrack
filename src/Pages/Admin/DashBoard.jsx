@@ -22,6 +22,8 @@ const Dashboard = () => {
   const [dashboardDate, setdashboardDate] = useState(null);
   const [pieChartData, setpieChartData] = useState([])
   const [barChartData, setbarChartData] = useState([])
+  console.log("dashboardDate", dashboardDate);
+  
   
   const prepareChartData = (data)=>{
     const taskDistribution = data?.taskDistribution || null
@@ -134,7 +136,7 @@ const Dashboard = () => {
         <div className='md:col-span-2'>
           <div className='card'>
             <div className='flex items-center justify-between'>
-              <h5 className='text-lg'>Recent Tasks</h5>
+              <h5 className='text-lg font-medium'>Recent Tasks</h5>
               <button className='card-btn' onClick={onSeeMore}>
                 See All <LuArrowRight className='text-base'/>
               </button>

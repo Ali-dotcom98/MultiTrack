@@ -22,6 +22,10 @@ const TaskCard = ({
     
 
 }) => {
+    console.log(progress);
+    console.log("Total task", totalTasks);
+    
+    
     const statusColot = ()=>{
         switch(status)
         {
@@ -40,13 +44,13 @@ const TaskCard = ({
         switch(priority)
         {
             case "Low":
-                return "text-emerald-500 bg-emerald-500 border border-emerald-500/10";
+                return "text-emerald-500 bg-emerald-50 border border-emerald-500/10";
 
             case "Medium":
-            return "text-amber-500 bg-amber-500 border border-amber-500/10";
+            return "text-amber-500 bg-amber-50 border border-amber-500/10";
 
             default:
-                return "text-rose-500 bg-rose-500 border border-rose-500/10";
+                return "text-rose-500 bg-rose-50 border border-rose-500/10";
 
 
         }
@@ -56,7 +60,7 @@ const TaskCard = ({
         <div className='flex items-end gap-3 px-4'>
             <div className={`text-[11px] font-medium ${statusColot()} px-4 py-0.5 rounded`}>
                 {
-                    status
+                    status== null  ? "Pending" : status
                 }
             </div>
             <div className={`text-[11px] font-medium ${getpriority()} px-4 py-0.5 rounded`}>
@@ -70,7 +74,7 @@ const TaskCard = ({
             status === "In Progress" ? "border-cyan-500" : status === "Completed" ?" border-indigo-500" : "border-violet-500"
         }`}>
             <p className='text-sm font-medium text-gray-800 mt-4 line-clamp-2'>{title}</p>
-            <p className='text-xs text-gray-500 mt-1.5 line-clamp-2 leading-[18px]'>{description}</p>
+            <p className='text-xs text-gray-500 mt-1.5 line-clamp-2 leading-[18px] min-h-8'>{description}</p>
             <p className='text-[13px] text-gray-700/80 font-medium mt-2 mb-2 leading-[18px]'>
                 Task Done : {""}
                 <span className='font-semibold text-gray-700'>

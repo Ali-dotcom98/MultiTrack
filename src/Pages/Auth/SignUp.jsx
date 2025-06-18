@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Eye, EyeOff, LogIn, Upload } from 'lucide-react';
 import { validateEmail } from './valideEmail';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom"
 import PhotoSelector from './components/PhotoSelector';
 import UploadImage from './components/UploadImage';
+import { UserContext } from '../../ContextApi/User';
+import CustomDiv from './components/CustomDiv';
 
 const SignUp = () => {
   const [email, setemail] = useState('');
@@ -15,7 +17,7 @@ const SignUp = () => {
   const [error, seterror] = useState('');
   const [hide, sethide] = useState(true); 
   const [ProfilePic, setProfilePic] = useState("")
-  
+    const  {updateUser}  = useContext(UserContext)
   
   const navigate = useNavigate();
 
@@ -29,29 +31,37 @@ const SignUp = () => {
         console.log("image", profileImageUrl);
         
 
-        const response = await axios.post("http://localhost:3000/api/auth/register",{
+        const result = await axios.post("http://localhost:3000/api/auth/register",{
           name,
           email,
           password,
           profileImageUrl,
           adminInviteToken:adminToken
-        })
-        console.log(response);
-        
-        console.log(response.data.Message);
-        const User = response.data.User
+        } ,  { withCredentials: true } )
+     
+        const User = result.data.user;
+        const Token = result.data.token;
+        updateUser(User, Token)
         console.log(User);
         if(User.role=="member")
-        {
-          navigate("/user/dashboard")
-        }
-        else
-        {
-          navigate("/admin/dashboard")
-        }
+
+          {
+            navigate("/user/dashboard")
+          }
+          else
+          {
+            navigate("/admin/dashboard")
+          }
+        
+
+        console.log("Authorized");
       
       } catch (error) {
         console.log(error);
+        if (!error.response) {
+  
+            seterror("Server is currently unreachable. Please try again later.");
+          }
         console.log(error.response.data.Message);
         seterror(error.response.data.Message)
         
@@ -59,7 +69,7 @@ const SignUp = () => {
       }
       
       
-      
+    
       
     }
 
@@ -87,11 +97,21 @@ const SignUp = () => {
         seterror("Please Enter the Password")
         return;
       }
+    if(!ProfilePic)
+    {
+      seterror("Please add Profile Image")
+      return;
+    }
     seterror("")
     sendData()
 
   };
 
+  useEffect(()=>{
+    setTimeout(() => {
+      seterror("")
+    }, 3000);
+  },[error])
   const ToggleHide = (e) => {
     e.preventDefault(); 
     sethide((prev) => !prev);
@@ -99,8 +119,9 @@ const SignUp = () => {
 
   return (
     <>
-      <div className='flex flex-row font-poppins'>
-        <div className='w-[60%] flex flex-col space-y-5  h-screen py-10 px-16'>
+      <div className='relative flex flex-row font-poppins overflow-hidden h-screen'>
+
+        <div className='w-[60%] flex flex-col space-y-5 py-10 px-16'>
           <h1 className='font-semibold text-2xl'>Task Manager</h1>
           <div className='flex flex-col justify-center  h-full'>
             <div className='flex flex-col gap-5'>
@@ -181,9 +202,15 @@ const SignUp = () => {
           </div>
         </div>
 
-        <div className='w-[40%] bg-task_primary h-screen flex items-center justify-center'>
+        {/* <div className='w-[40%] bg-task_primary h-screen flex items-center justify-center'>
           <div className='text-9xl text-white'>TM</div>
+        </div> */}
+        <div className="relative flex h-[120vh] w-[40%] -translate-y-10 translate-x-10 rotate-12 items-center justify-center overflow-hidden bg-[#2563eb]">
+          <CustomDiv />
         </div>
+        <div className="absolute -top-96 right-32 z-30 size-96 -translate-y-16 -rotate-12 scale-150 rounded-3xl bg-blue-800"></div>
+        <div className="absolute -bottom-96 right-32 z-30 size-96 -translate-x-48 translate-y-8 -rotate-12 scale-150 rounded-3xl bg-blue-800"></div>
+      
       </div>
     </>
   );

@@ -23,6 +23,9 @@ const UserDashBoard = () => {
   const [pieChartData, setpieChartData] = useState([])
   const [barChartData, setbarChartData] = useState([])
   
+  console.log("dashboardDate", dashboardDate);
+  
+
   const prepareChartData = (data)=>{
     const taskDistribution = data?.taskDistribution || null
     const taskPriorityLevel = data?.taskPriorityLevel || null
