@@ -48,7 +48,7 @@ export const SIDE_MENU_DATA_User = [
     },
     {
         id: "02",
-        label: "My Tasks",
+        label: "Manage Tasks",
         icon: LuClipboardCheck,
         path: "/user/tasks",
     },

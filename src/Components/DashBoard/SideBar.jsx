@@ -3,6 +3,8 @@ import {SIDE_MENU_DATA , SIDE_MENU_DATA_User} from "./data"
 import { UserContext } from '../../ContextApi/User';
 import { useNavigate } from 'react-router-dom';
 const SideBar = ({activeMenu}) => {
+    console.log("activeMenu", activeMenu);
+    
     
     const [SelectData, setSelectData] = useState([])
 
