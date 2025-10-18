@@ -15,7 +15,6 @@ const Login = () => {
 
     const sendData = async()=>{
       try {
-        
         const result = await axios.post(
           "http://localhost:3000/api/auth/login",
           { email, password },
@@ -32,6 +31,7 @@ const Login = () => {
           {
             navigate("/user/dashboard")
           }
+          
           else
           {
             navigate("/admin/dashboard")
