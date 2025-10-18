@@ -10,9 +10,10 @@ import ManagaUser from './Pages/Admin/ManagaUser'
 import CreateTask from './Pages/Admin/CreateTask'
 import UserDashBoard from './Pages/User/UserDashBoard'
 import MyTask from './Pages/User/MyTask'
-import ViewTaskDetail from './Pages/User/ViewTaskDetail'
+
 import UserProvider, { UserContext } from './ContextApi/User'
 import { Toaster } from 'react-hot-toast'
+import ViewTaskDetails from './Pages/User/ViewTaskDetail'
 const App = () => {
   const Routes = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const App = () => {
       children:[
         {path:"/user/dashboard", element:<UserDashBoard/>},
         {path:"/user/tasks", element:<MyTask/>},
-        {path:"/user/task-detail/:id", element:<ViewTaskDetail/>},
+        {path:"/user/task-detail/:id", element:<ViewTaskDetails/>},
   
       ]
     }
