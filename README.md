@@ -1,7 +1,6 @@
 ## 🏆 MultiTrack
 
-**MultiTrack** is a powerful and intuitive **Task Management App** built using the **MERN (MongoDB, Express.js, React.js, Node.js)** stack.  
-It enables users and teams to **create, assign, and track tasks effortlessly**, with features like **automated progress tracking, priority management, file attachments, and real-time collaboration**.  
+**MultiTrack** is a powerful and intuitive **Task Management App** built using the **MERN (MongoDB, Express.js, React.js, Node.js)** stack. It enables users and teams to **create, assign, and track tasks effortlessly**, with features like **automated progress tracking, priority management, file attachments, and real-time collaboration**.  
 
 > 🧩 *Stay on track — manage more, stress less.*
 
