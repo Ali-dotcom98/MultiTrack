@@ -47,7 +47,6 @@ It enables users and teams to **create, assign, and track tasks effortlessly**, 
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB (Mongoose)  
 - **Authentication:** JWT  
-- **Real-Time Features:** Socket.IO *(optional for live updates)*  
 - **Charting & Visualization:** Recharts or Chart.js  
 
 ---
