@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Progress = ({ progres, status }) => {
+  console.log("progres",progres);
+  
   const getColor = () => {
     switch (status) {
       case "In Progress":
