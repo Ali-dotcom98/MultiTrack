@@ -45,7 +45,7 @@ const SideBar = ({activeMenu}) => {
 
     <>
 <div className="w-64 h-[calc(100vh-61px)] sticky top-[75px] left-0 bg-white border border-gray-200/50 font-poppins z-20">            
-            <div className='flex flex-col items-center justify-center mb-7 pt-10'>
+            <div className='flex flex-col items-center justify-center mb-7 pt-10 '>
                 <img className='size-20 rounded-full' src={User.profileImage} alt="" />
                 <h1 className='text-[10px] font-medium text-white bg-task_primary px-3 py-0.5 rounded mt-1'>{User.role}</h1>
                 <p className='text-gray-950 font-medium leading-6 mt-3'>{User.name}</p>
