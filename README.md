@@ -65,5 +65,5 @@ npm install
 # Start the development server
 npm run dev
 ```
-![Untitled (1) (1)](https://github.com/Ali-dotcom98/MultiTrack/blob/main/MultiTrack_Mockup2.png?raw=true)
+![Untitled (1) (1)](https://github.com/Ali-dotcom98/MultiTrack/blob/main/TaskManager.png?raw=true)
 
